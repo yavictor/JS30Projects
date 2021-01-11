@@ -46,7 +46,7 @@ function numberWithCommas(x) {
           <span class="population">${numberWithCommas(place.population)}</span> 
         </li>
       `;
-    }).join('');
+    }).join('') || `<h3 style="text-align: center;">Sorry, no matches found<h3>`;
     suggetstions.innerHTML = html;
   };
 
