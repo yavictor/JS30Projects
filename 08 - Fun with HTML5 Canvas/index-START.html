@@ -22,10 +22,15 @@
   let lastX = 0;
   let lastY = 0;
   let hue = 0;
+  let direction = true;
 
 
   function draw(e) {
     if (!isDrawing) return;
+    if(e.buttons === 2) {
+      
+      ctx.clearRect(e.offsetX, e.offsetY, 100, 100);
+    }
     console.log(e);
     ctx.strokeStyle = `hsl(${hue}, 100%, 60%)`;
     ctx.beginPath();
@@ -45,12 +50,17 @@
     };
   };
 
+  function erase(e) {
+    ctx.clearRect()
+  }
+
   canvas.addEventListener('mousedown', (e) => {
     isDrawing = true;
     [lastX, lastY] = [e.offsetX, e.offsetY];
   });
   canvas.addEventListener('mousemove', draw);
   canvas.addEventListener('mouseup', () => isDrawing = false);
+
   //canvas.addEventListener('mouseout', () => isDrawing = false);
 
 </script>
